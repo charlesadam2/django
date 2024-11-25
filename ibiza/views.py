@@ -4,28 +4,36 @@ from .models import Carousel, About, Box, Action, Service, Portfolio, Testimonia
 
 # Create your views here.
 
-def home(request):
-    return render(request, 'home.html')
-
 def blog(request):
     return render(request, 'blog.html')
 
 def home(request):
+    carousels = Carousel.objects.all()
+    abouts = About.objects.all()
+    boxs = Box.objects.all()
+    services = Service.objects.all()
+    portfolios = Portfolio.objects.all()
+    testimonials = Testimonial.objects.all()
+    faqs = Faq.objects.all()
+    teams = Team.objects.all()
+    blogs = Blog.objects.all()
+    contacts = Contact.objects.all()
+
     context = {
-        'carousels': Carousel.objects.all(),
-        'about': About.objects.all(),
-        'box': Box.objects.all(),
-        'action': Action.objects.all(),
-        'service': Service.objects.all(),
-        'portfolio': Portfolio.objects.all(),
-        'testimonial': Testimonial.objects.all(),
-        'pricing': Pricing.objects.all(),
-        'faq': Faq.objects.all(),
-        'team': Team.objects.all(),
-        'blog': Blog.objects.all(),
-        'contact': Contact.objects.all(),
+        'carousels':  Carousel.objects.all(),
+        'abouts': About.objects.all(),
+        'boxs': Box.objects.all(),
+        'actions': Action.objects.all(),
+        'services': Service.objects.all(),
+        'portfolios': Portfolio.objects.all(),
+        'testimonials': Testimonial.objects.all(),
+        'pricings': Pricing.objects.all(),
+        'faqs': Faq.objects.all(),
+        'teams': Team.objects.all(),
+        'blogs': Blog.objects.all(),
+        'contacts': Contact.objects.all(),
     }
-    return render(request, 'home.html', context={})
+    return render(request, 'home.html', context)
 
 
 # def form(request):

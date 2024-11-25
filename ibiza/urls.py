@@ -7,5 +7,5 @@ app_name = 'ibiza'
 
 urlpatterns=[
 	path('', views.home, name='home'),
-	path('blog/', views.blog, name='blog'),
-	]
+	path('blog', views.blog, name='blog'),
+]

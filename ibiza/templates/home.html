@@ -10,22 +10,24 @@
     <section id="hero" class="hero section dark-background">
 
       <div id="hero-carousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
-        
-          
+
+        {% for carousel in carousels %}
         <!-- Slide 1 -->
-        <div class="carousel-item active">
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>IBIZA</span></h2>
-            <p class="animate__animated animate__fadeInUp">This is the best place you would ever wish to be. Enjoy the cool view of coastal sandy beaches on your stay with us. This is the best choice you have made, now relax let us take control.</p>
-            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+            <h2 class="animate__animated animate__fadeInDown">{{ carousel.title }}</h2>
+            <p class="animate__animated animate__fadeInUp">{{ carousel.content }}</p>
+            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read more</a>
           </div>
         </div>
+          
+          {% endfor %}
 
         <!-- Slide 2 -->
 {#        <div class="carousel-item">#}
 {#          <div class="carousel-container">#}
 {#            <h2 class="animate__animated animate__fadeInDown">OUR BACKGROUND</h2>#}
-{#            <p class="animate__animated animate__fadeInUp">Over the years we have been stuggling to bring the best experience to our customer by trying different ways of entertaining both our local and foreign tourist. After a session with some of our experts we settled at a neutral point where the rod meets the iron and thats what makes you visit our site.</p>#}
+{#            <p class="animate__animated animate__fadeInUp">Over the years we have been struggling to bring the best experience to our customer by trying different ways of entertaining both our local and foreign tourist. After a session with some of our experts we settled at a neutral point where the rod meets the iron and thats what makes you visit our site.</p>#}
 {#            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>#}
 {#          </div>#}
 {#        </div>#}
@@ -74,6 +76,8 @@
         <h2>About</h2>
         <p>Who we are</p>
       </div><!-- End Section Title -->
+        
+        {% for about in abouts %}
 
       <div class="container">
 
@@ -81,30 +85,30 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              But who are we if i may ask because that is the same question you are asking yourself right now. To be precise, i will list down who we really are and where you can find us geographically now that you
-              found us online.
+                {{ about.content }}
             </p>
             <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>We are one of the five star hotels in the country</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Too many branches nationwide but the headquarters are in the south coast</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>We could also be one of the biggest competitor with KFC as of now but just keep this in the back of your mind</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>{{ about.list_1 }}</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>{{ about.list_2 }} </span></li>
+              <li><i class="bi bi-check2-circle"></i> <span> </span></li>
             </ul>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>At Ibiza, we believe that great food is more than just a meal—it’s an experience. Our commitment to delivering fresh, flavorful dishes that capture the essence of high-quality ingredients is what sets us apart. Whether you're craving our crispy, golden fried chicken, made with our signature spices, or indulging in our mouthwatering sides and deliciously unique sauces, every bite at Ibiza is crafted to delight.
-                 Unlike the mass-produced offerings you may find elsewhere, our menu is designed with care, offering a range of delicious options that cater to every taste. From our tender chicken to our savory wraps and salads, Ibiza offers a family-friendly dining experience that combines bold flavors, quality, and value. It’s not just fast food—it’s the Ibiza way of doing things right, every time. </p>
+            <p>{{ about.explanation }} </p>
             <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
           </div>
 
         </div>
 
       </div>
+        {% endfor %}
 
     </section><!-- /About Section -->
 
     <!-- Features Section -->
     <section id="features" class="features section">
+        {% for box in boxs %}
 
       <div class="container">
 
@@ -112,27 +116,28 @@
           <li class="nav-item col-3">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
               <i class="bi bi-binoculars"></i>
-              <h4 class="d-none d-lg-block">Quality</h4>
+              <h4 class="d-none d-lg-block">{{ box.title }}</h4>
             </a>
           </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-              <i class="bi bi-box-seam"></i>
-              <h4 class="d-none d-lg-block">Dedication</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-              <i class="bi bi-brightness-high"></i>
-              <h4 class="d-none d-lg-block">Your Good Health is our Priority</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">
-              <i class="bi bi-command"></i>
-              <h4 class="d-none d-lg-block">Unity at its best</h4>
-            </a>
-          </li>
+{#          <li class="nav-item col-3">#}
+{#            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">#}
+{#              <i class="bi bi-box-seam"></i>#}
+{#              <h4 class="d-none d-lg-block">Dedication</h4>#}
+{#            </a>#}
+{#          </li>#}
+{#          <li class="nav-item col-3">#}
+{#            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">#}
+{#              <i class="bi bi-brightness-high"></i>#}
+{#              <h4 class="d-none d-lg-block">Your Good Health is our Priority</h4>#}
+{#            </a>#}
+{#          </li>#}
+{#          <li class="nav-item col-3">#}
+{#            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4">#}
+{#              <i class="bi bi-command"></i>#}
+{#              <h4 class="d-none d-lg-block">Unity at its best</h4>#}
+{#            </a>#}
+{#          </li>#}
+            
         </ul><!-- End Tab Nav -->
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
@@ -140,98 +145,97 @@
           <div class="tab-pane fade active show" id="features-tab-1">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>At Ibiza, we offer the highest level of indulgence, ensuring every meal feels like a perfect experience for the senses.</h3>
+                <h3>{{ box.content }}</h3>
                 <p class="fst-italic">
-                    At Ibiza, we strive to deliver an unforgettable dining experience, where every dish is crafted with care and passion, ensuring satisfaction for all who indulge.
-                </p>
+                {{ box.explanation }}</p>
                 <ul>
                   <li><i class="bi bi-check2-all"></i>
-                    <span>At Ibiza, we believe in making every meal effortless and enjoyable, with a focus on delicious flavors that provide true satisfaction.</span>
+                    <span>{{ box.discussion }}</span>
                   </li>
-                  <li><i class="bi bi-check2-all"></i> <span>Experience the joy of great taste without compromise.</span>.</li>
-                  <li><i class="bi bi-check2-all"></i> <span>Every dish is crafted for your pleasure and satisfaction.Enjoy the taste without the guilt or disappointment.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>{{ box.list_1 }}</span>.</li>
+                  <li><i class="bi bi-check2-all"></i> <span>{{ box.list_2 }}</span></li>
                 </ul>
                 <p>
-                    Every dish is carefully crafted to bring you comfort and enjoyment. Indulge without guilt, savor the taste, and leave disappointment behind. At Ibiza, we take pride in satisfying your cravings, and we’re committed to delivering the very best experience every time
+                   {{ box.conclusion }}
                 </p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/working-1.jpg' %}" alt="working-1" class="img-fluid">
+                <img src="{{ box.image.url }}" alt="working-1" class="img-fluid">
               </div>
             </div>
           </div><!-- End Tab Content Item -->
 
-          <div class="tab-pane fade" id="features-tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>We don’t take shortcuts in our service; every commitment is fulfilled with care and dedication</h3>
-                <p>
-                    No task is complete unless it brings true satisfaction. We believe in providing a full experience of flavor and pleasure, without any compromises. Our commitment is clear: we aim to exceed expectations, never settling for less than the best
-                </p>
-                <p class="fst-italic">
-                    At Ibiza, we believe in delivering an exceptional experience—one that requires effort and passion. Every dish is crafted with care, bringing you indulgence and satisfaction like no other.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>We believe in hard work and dedication. At Ibiza, every dish is made to provide you with nothing less than the best..</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Every detail is designed to make your dining experience more enjoyable, ensuring you savor every moment</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>We understand that true satisfaction goes beyond just flavor, every dish is designed to give you the pleasure of indulgence, without the guilt.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>We work hard to ensure that every bite you take is filled with comfort and flavor—no sacrifices, only pure indulgence.</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/working-2.jpg' %}" alt="working-2" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
-
-          <div class="tab-pane fade" id="features-tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>At Ibiza, we understand the value of comfort and indulgence. Every dish is created to bring you joy, leaving you with no regrets or discomfort.</h3>
-                <p>
-                    At Ibiza, we are committed to delivering more than just a meal. We provide an experience of indulgence, where every bite brings you joy, and no compromise is made.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>We don’t just serve food—we create moments of comfort and enjoyment with every dish</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>At Ibiza, we make sure every moment of your dining experience is pure enjoyment, with no room for discomfort or regret.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>No need to settle. At Ibiza, every dish is crafted to give you pure enjoyment without any compromise or discomfort.</span></li>
-                </ul>
-                <p class="fst-italic">
-                    Every meal at Ibiza is a carefully crafted journey of flavor, designed to bring you joy and satisfaction from the first bite to the last.
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/working-3.jpg' %}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
-
-          <div class="tab-pane fade" id="features-tab-4">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>At Ibiza, we believe that dining should be free of discomfort. Every dish is designed to bring you satisfaction, ensuring that every bite exceeds expectations</h3>
-                <p>
-                    At Ibiza, we dedicate ourselves to delivering only the best. Each dish is carefully made to ensure you enjoy a perfect dining experience, leaving no room for regret
-                </p>
-                <p class="fst-italic">
-                    Quality takes time and effort. At Ibiza, we put in the work to make sure every meal delivers an unforgettable dining experience
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>At Ibiza, we believe that fast food should be more than just quick service; it should be a blend of convenience and quality, designed to give you the most value with every bite</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>We’ve crafted our menu to deliver both satisfaction and ease, with every bite designed to bring you joy.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>We understand that the pursuit of great taste should never be a burden. That's why our team works tirelessly to offer a dining experience that combines flavor, ease, and fast service—without the hassle.</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{% static 'assets/img/working-4.jpg'  %}" alt="working-4" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
+{#          <div class="tab-pane fade" id="features-tab-2">#}
+{#            <div class="row">#}
+{#              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">#}
+{#                <h3>We don’t take shortcuts in our service; every commitment is fulfilled with care and dedication</h3>#}
+{#                <p>#}
+{#                    No task is complete unless it brings true satisfaction. We believe in providing a full experience of flavor and pleasure, without any compromises. Our commitment is clear: we aim to exceed expectations, never settling for less than the best#}
+{#                </p>#}
+{#                <p class="fst-italic">#}
+{#                    At Ibiza, we believe in delivering an exceptional experience—one that requires effort and passion. Every dish is crafted with care, bringing you indulgence and satisfaction like no other.#}
+{#                </p>#}
+{#                <ul>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>We believe in hard work and dedication. At Ibiza, every dish is made to provide you with nothing less than the best..</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>Every detail is designed to make your dining experience more enjoyable, ensuring you savor every moment</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>We understand that true satisfaction goes beyond just flavor, every dish is designed to give you the pleasure of indulgence, without the guilt.</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>We work hard to ensure that every bite you take is filled with comfort and flavor—no sacrifices, only pure indulgence.</span></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#              <div class="col-lg-6 order-1 order-lg-2 text-center">#}
+{#                <img src="{% static 'assets/img/working-2.jpg' %}" alt="working-2" class="img-fluid">#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Tab Content Item -->#}
+{##}
+{#          <div class="tab-pane fade" id="features-tab-3">#}
+{#            <div class="row">#}
+{#              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">#}
+{#                <h3>At Ibiza, we understand the value of comfort and indulgence. Every dish is created to bring you joy, leaving you with no regrets or discomfort.</h3>#}
+{#                <p>#}
+{#                    At Ibiza, we are committed to delivering more than just a meal. We provide an experience of indulgence, where every bite brings you joy, and no compromise is made.#}
+{#                </p>#}
+{#                <ul>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>We don’t just serve food—we create moments of comfort and enjoyment with every dish</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>At Ibiza, we make sure every moment of your dining experience is pure enjoyment, with no room for discomfort or regret.</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>No need to settle. At Ibiza, every dish is crafted to give you pure enjoyment without any compromise or discomfort.</span></li>#}
+{#                </ul>#}
+{#                <p class="fst-italic">#}
+{#                    Every meal at Ibiza is a carefully crafted journey of flavor, designed to bring you joy and satisfaction from the first bite to the last.#}
+{#                </p>#}
+{#              </div>#}
+{#              <div class="col-lg-6 order-1 order-lg-2 text-center">#}
+{#                <img src="{% static 'assets/img/working-3.jpg' %}" alt="" class="img-fluid">#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Tab Content Item -->#}
+{##}
+{#          <div class="tab-pane fade" id="features-tab-4">#}
+{#            <div class="row">#}
+{#              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">#}
+{#                <h3>At Ibiza, we believe that dining should be free of discomfort. Every dish is designed to bring you satisfaction, ensuring that every bite exceeds expectations</h3>#}
+{#                <p>#}
+{#                    At Ibiza, we dedicate ourselves to delivering only the best. Each dish is carefully made to ensure you enjoy a perfect dining experience, leaving no room for regret#}
+{#                </p>#}
+{#                <p class="fst-italic">#}
+{#                    Quality takes time and effort. At Ibiza, we put in the work to make sure every meal delivers an unforgettable dining experience#}
+{#                </p>#}
+{#                <ul>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>At Ibiza, we believe that fast food should be more than just quick service; it should be a blend of convenience and quality, designed to give you the most value with every bite</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>We’ve crafted our menu to deliver both satisfaction and ease, with every bite designed to bring you joy.</span></li>#}
+{#                  <li><i class="bi bi-check2-all"></i> <span>We understand that the pursuit of great taste should never be a burden. That's why our team works tirelessly to offer a dining experience that combines flavor, ease, and fast service—without the hassle.</span></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#              <div class="col-lg-6 order-1 order-lg-2 text-center">#}
+{#                <img src="{% static 'assets/img/working-4.jpg'  %}" alt="working-4" class="img-fluid">#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Tab Content Item -->#}
 
         </div>
 
       </div>
-
+    {% endfor %}
     </section><!-- /Features Section -->
 
     <!-- Call To Action Section -->
@@ -261,6 +265,7 @@
         <h2>Services</h2>
         <p>What we do offer</p>
       </div><!-- End Section Title -->
+        {% for service in services %}
 
       <div class="container">
 
@@ -272,75 +277,75 @@
                 <i class="bi bi-cash-stack" style="color: #0dcaf0;"></i>
               </div>
               <a href="service-details.html" class="stretched-link">
-                <h3>Beyond boundaries</h3>
+                <h3>{{ service.title }}</h3>
               </a>
-              <p>Ibiza strives for greatness, holding ourselves accountable to deliver exceptional experiences, overcoming challenges as we go.
-                We do not settle for less than excellence, pushing boundaries in the pursuit of success.
+              <p>{{ service.content }}
               </p>
             </div>
+              {% endfor %}
           </div><!-- End Service Item -->
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week" style="color: #fd7e14;"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>What makes Ibiza a better choice: the benefits</h3>
-              </a>
-              <p>At Ibiza, we believe in simplicity, fairness, and freedom. Our customers enjoy a dining experience free from the usual frustrations and limitations of fast food.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-text" style="color: #20c997;"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Joyful dining at Ibiza</h3>
-              </a>
-              <p>At Ibiza, we reject the traditional fast food experience. We believe in offering true enjoyment, free from the corruption of old business practices.
-                Escape the ordinary with Ibiza—where true pleasure and innovation await.
-              </p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-credit-card-2-front" style="color: #df1529;"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Ibiza: the more challenging but rewarding experience.</h3>
-              </a>
-              <p>At Ibiza, we understand that greatness requires effort. While many may choose the easy path, true satisfaction lies in breaking free from convention and striving for a better experience.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-globe" style="color: #6610f2;"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>sacrificing short-term comfort</h3>
-              </a>
-              <p>At Ibiza, we believe in greater rewards. While our dining experience may require more thought and care, it’s always worth the effort.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-clock" style="color: #f3268c;"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>We are the architects of a dining experience that challenges the ordinary.</h3>
-              </a>
-              <p>At Ibiza, we reject the common pitfalls of the fast food industry. We believe in offering a dining experience free from the troubles and corruption of traditional business models.</p>
-            </div>
-          </div><!-- End Service Item -->
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-calendar4-week" style="color: #fd7e14;"></i>#}
+{#              </div>#}
+{#              <a href="service-details.html" class="stretched-link">#}
+{#                <h3>What makes Ibiza a better choice: the benefits</h3>#}
+{#              </a>#}
+{#              <p>At Ibiza, we believe in simplicity, fairness, and freedom. Our customers enjoy a dining experience free from the usual frustrations and limitations of fast food.</p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-chat-text" style="color: #20c997;"></i>#}
+{#              </div>#}
+{#              <a href="service-details.html" class="stretched-link">#}
+{#                <h3>Joyful dining at Ibiza</h3>#}
+{#              </a>#}
+{#              <p>At Ibiza, we reject the traditional fast food experience. We believe in offering true enjoyment, free from the corruption of old business practices.#}
+{#                Escape the ordinary with Ibiza—where true pleasure and innovation await.#}
+{#              </p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-credit-card-2-front" style="color: #df1529;"></i>#}
+{#              </div>#}
+{#              <a href="service-details.html" class="stretched-link">#}
+{#                <h3>Ibiza: the more challenging but rewarding experience.</h3>#}
+{#              </a>#}
+{#              <p>At Ibiza, we understand that greatness requires effort. While many may choose the easy path, true satisfaction lies in breaking free from convention and striving for a better experience.</p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-globe" style="color: #6610f2;"></i>#}
+{#              </div>#}
+{#              <a href="service-details.html" class="stretched-link">#}
+{#                <h3>sacrificing short-term comfort</h3>#}
+{#              </a>#}
+{#              <p>At Ibiza, we believe in greater rewards. While our dining experience may require more thought and care, it’s always worth the effort.</p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
+{##}
+{#          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">#}
+{#            <div class="service-item position-relative">#}
+{#              <div class="icon">#}
+{#                <i class="bi bi-clock" style="color: #f3268c;"></i>#}
+{#              </div>#}
+{#              <a href="service-details.html" class="stretched-link">#}
+{#                <h3>We are the architects of a dining experience that challenges the ordinary.</h3>#}
+{#              </a>#}
+{#              <p>At Ibiza, we reject the common pitfalls of the fast food industry. We believe in offering a dining experience free from the troubles and corruption of traditional business models.</p>#}
+{#            </div>#}
+{#          </div><!-- End Service Item -->#}
 
         </div>
 
@@ -356,32 +361,34 @@
         <h2>Portfolio</h2>
         <p>What we've done</p>
       </div><!-- End Section Title -->
+        {% for portfolio in portfolios %}
 
       <div class="container">
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Card</li>
-            <li data-filter=".filter-branding">Web</li>
+            <li data-filter="*" class="filter-active">{{ portfolio.link }}</li>
+{#            <li data-filter=".filter-app">App</li>#}
+{#            <li data-filter=".filter-product">Card</li>#}
+{#            <li data-filter=".filter-branding">Web</li>#}
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-1.jpg' %}" class="img-fluid" alt="masonry-portfolio-1">
+              <img src="{{ portfolio.image_1.url }}" class="img-fluid" alt="masonry-portfolio-1">
               <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>A New Taste. A New Experience.</p>
-                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-1.jpg' %}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <h4>{{ portfolio.title }}</h4>
+                <p>{{ portfolio.content }}</p>
+                <a href="{{ portfolio.image_1.url }}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                 <a href="{% static 'portfolio-details.html' %}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
+              
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-2.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_2.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Product 1</h4>
                 <p>Experience the Difference in Every Bite.</p>
@@ -391,7 +398,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-3.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_3.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Branding 1</h4>
                 <p>Good Food, Good Vibes, Great Company. </p>
@@ -401,7 +408,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-4.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_4.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 2</h4>
                 <p>More Than a Meal. It’s an Experience.</p>
@@ -411,7 +418,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-5.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_5.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Product 2</h4>
                 <p>Ibiza: The Path Less Traveled</p>
@@ -421,7 +428,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-6.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_6.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Branding 2</h4>
                 <p>Not Just Fast Food, It’s a Culinary Journey.</p>
@@ -431,7 +438,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-7.jpg'  %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_7.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>App 3</h4>
                 <p>Choose Quality. Choose Ibiza.</p>
@@ -441,7 +448,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-8.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_8.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Product 3</h4>
                 <p>Taste the Effort Behind Every Dish.</p>
@@ -451,7 +458,7 @@
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-9.jpg' %}" class="img-fluid" alt="">
+              <img src="{{ portfolio.image_9.url }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Branding 3</h4>
                 <p>Where Flavor Meets Innovation.</p>
@@ -459,6 +466,7 @@
                 <a href="{% static 'portfolio-details.html' %}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div><!-- End Portfolio Item -->
+              {% endfor %}
 
           </div><!-- End Portfolio Container -->
 
@@ -472,6 +480,7 @@
     <section id="testimonials" class="testimonials section">
 
       <!-- Section Title -->
+        {% for testimonial in testimonials %}
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
         <p>What they are saying about us</p>
@@ -509,89 +518,90 @@
 
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <img src="{{ testimonial.image.url }}" class="testimonial-img" alt="">
+                <h3>{{ testimonial.full_name }}</h3>
+                <h4>{{ testimonial.title }}</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"Good Things Take Time, and We Value Every Moment."</span>
+                  <span>{{ testimonial.content }}</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"Not all things are easy, but they are worth the effort.Patience in the kitchen, perfection on the plate."</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>"At Ibiza, we believe that great food takes time and care. While others rush, we lead with love and attention to detail, crafting meals that are worth every moment. The smallest efforts bring the greatest rewards, and that's why we never compromise on quality."</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>At Ibiza, we understand that the best things are never rushed. While others seek shortcuts, we take the time to craft meals with care, because we believe that quality and effort are always worth the reward. Every dish is made with love and attention to detail, ensuring that each experience is truly exceptional</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>At Ibiza, we believe that great things take time. We never rush because we know that the smallest efforts—when done with care—create the biggest rewards. Every dish is crafted with precision, ensuring quality and excellence in every bite. We take pride in our work and offer forgiveness only for those willing to take the time to get it right.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-item">#}
+{#                <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">#}
+{#                <h3>Sara Wilsson</h3>#}
+{#                <h4>Designer</h4>#}
+{#                <div class="stars">#}
+{#                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                </div>#}
+{#                <p>#}
+{#                  <i class="bi bi-quote quote-icon-left"></i>#}
+{#                  <span>"Not all things are easy, but they are worth the effort.Patience in the kitchen, perfection on the plate."</span>#}
+{#                  <i class="bi bi-quote quote-icon-right"></i>#}
+{#                </p>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-item">#}
+{#                <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">#}
+{#                <h3>Jena Karlis</h3>#}
+{#                <h4>Store Owner</h4>#}
+{#                <div class="stars">#}
+{#                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                </div>#}
+{#                <p>#}
+{#                  <i class="bi bi-quote quote-icon-left"></i>#}
+{#                  <span>"At Ibiza, we believe that great food takes time and care. While others rush, we lead with love and attention to detail, crafting meals that are worth every moment. The smallest efforts bring the greatest rewards, and that's why we never compromise on quality."</span>#}
+{#                  <i class="bi bi-quote quote-icon-right"></i>#}
+{#                </p>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-item">#}
+{#                <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">#}
+{#                <h3>Matt Brandon</h3>#}
+{#                <h4>Freelancer</h4>#}
+{#                <div class="stars">#}
+{#                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                </div>#}
+{#                <p>#}
+{#                  <i class="bi bi-quote quote-icon-left"></i>#}
+{#                  <span>At Ibiza, we understand that the best things are never rushed. While others seek shortcuts, we take the time to craft meals with care, because we believe that quality and effort are always worth the reward. Every dish is made with love and attention to detail, ensuring that each experience is truly exceptional</span>#}
+{#                  <i class="bi bi-quote quote-icon-right"></i>#}
+{#                </p>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
+{##}
+{#            <div class="swiper-slide">#}
+{#              <div class="testimonial-item">#}
+{#                <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">#}
+{#                <h3>John Larson</h3>#}
+{#                <h4>Entrepreneur</h4>#}
+{#                <div class="stars">#}
+{#                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>#}
+{#                </div>#}
+{#                <p>#}
+{#                  <i class="bi bi-quote quote-icon-left"></i>#}
+{#                  <span>At Ibiza, we believe that great things take time. We never rush because we know that the smallest efforts—when done with care—create the biggest rewards. Every dish is crafted with precision, ensuring quality and excellence in every bite. We take pride in our work and offer forgiveness only for those willing to take the time to get it right.</span>#}
+{#                  <i class="bi bi-quote quote-icon-right"></i>#}
+{#                </p>#}
+{#              </div>#}
+{#            </div><!-- End testimonial item -->#}
 
           </div>
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
+        {% endfor %}
 
     </section><!-- /Testimonials Section -->
 
@@ -603,6 +613,7 @@
         <h2>Pricing</h2>
         <p>What they are saying about us</p>
       </div><!-- End Section Title -->
+        {% for pricing in pricings %}
 
       <div class="container">
 
@@ -610,72 +621,73 @@
 
           <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="pricing-item">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
+              <h3>{{ pricing.title }}</h3>
+              <h4><sup>$</sup>{{ pricing.amount }}<span> / month</span></h4>
               <ul>
-                <li>normal price at restaurant</li>
-                <li>deliveries and other services</li>
-                <li>for our daily customers</li>
-                <li class="na">special buffet</li>
-                <li class="na">exetras</li>
+                <li>{{ pricing.list_1 }}</li>
+                <li>{{ pricing.list_2 }}</li>
+                <li>{{ pricing.list_3 }}</li>
+                <li class="na">{{ pricing.list_4 }}</li>
+                <li class="na">{{ pricing.list_5 }}</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <a href="#" class="btn-buy">{{ pricing.list_6 }}</a>
               </div>
             </div>
+              {% endfor %}
           </div><!-- End Pricing Item -->
 
-          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="pricing-item featured">
-              <h3>Business</h3>
-              <h4><sup>$</sup>19<span> / month</span></h4>
-              <ul>
-                <li>normal prices</li>
-                <li>deliveries and other services</li>
-                <li>for our daily customers</li>
-                <li>special buffet</li>
-                <li class="na">exetras</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="pricing-item">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>normal prices</li>
-                <li>deliveries and other services</li>
-                <li>for our daily customers</li>
-                <li>special buffet</li>
-                <li>exetras</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="pricing-item">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>normal prices</li>
-                <li>deliveries and other services</li>
-                <li>for our daily customers</li>
-                <li>special buffet</li>
-                <li>exetras</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div><!-- End Pricing Item -->
+{#          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">#}
+{#            <div class="pricing-item featured">#}
+{#              <h3>Business</h3>#}
+{#              <h4><sup>$</sup>19<span> / month</span></h4>#}
+{#              <ul>#}
+{#                <li>normal prices</li>#}
+{#                <li>deliveries and other services</li>#}
+{#                <li>for our daily customers</li>#}
+{#                <li>special buffet</li>#}
+{#                <li class="na">exetras</li>#}
+{#              </ul>#}
+{#              <div class="btn-wrap">#}
+{#                <a href="#" class="btn-buy">Buy Now</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Pricing Item -->#}
+{##}
+{#          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="400">#}
+{#            <div class="pricing-item">#}
+{#              <h3>Developer</h3>#}
+{#              <h4><sup>$</sup>29<span> / month</span></h4>#}
+{#              <ul>#}
+{#                <li>normal prices</li>#}
+{#                <li>deliveries and other services</li>#}
+{#                <li>for our daily customers</li>#}
+{#                <li>special buffet</li>#}
+{#                <li>exetras</li>#}
+{#              </ul>#}
+{#              <div class="btn-wrap">#}
+{#                <a href="#" class="btn-buy">Buy Now</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Pricing Item -->#}
+{##}
+{#          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="400">#}
+{#            <div class="pricing-item">#}
+{#              <span class="advanced">Advanced</span>#}
+{#              <h3>Ultimate</h3>#}
+{#              <h4><sup>$</sup>49<span> / month</span></h4>#}
+{#              <ul>#}
+{#                <li>normal prices</li>#}
+{#                <li>deliveries and other services</li>#}
+{#                <li>for our daily customers</li>#}
+{#                <li>special buffet</li>#}
+{#                <li>exetras</li>#}
+{#              </ul>#}
+{#              <div class="btn-wrap">#}
+{#                <a href="#" class="btn-buy">Buy Now</a>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Pricing Item -->#}
 
         </div>
 
@@ -690,6 +702,8 @@
         <h2>Frequently Asked Questions</h2>
         <p>Frequently Asked Questions</p>
       </div><!-- End Section Title -->
+        
+        {% for faq in faqs %}
 
       <div class="container" data-aos="fade-up">
         <div class="row">
@@ -698,48 +712,49 @@
               <div class="accordion-item">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-1">
-                    How to download and register?
+                    {{ faq.question }}
                   </button>
                 </h2>
 
                 <div id="collapse-faq-1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion-faq">
                   <div class="accordion-body">
-                    At playstore search for ibiza rest and then download our mobile app
+                    {{ faq.answer }}
                   </div>
                 </div>
               </div>
+                {% endfor %}
               <!-- .accordion-item -->
-
-              <div class="accordion-item">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-2">
-                payment methods
-              </button>
-            </h2>
-            <div id=" collapse-faq-2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion-faq">
-                    <div class="accordion-body">
-                     payment methods include payless, mpesa ,mastercard or cash
-                    </div>
-              </div>
-            </div>
-            <!-- .accordion-item -->
-
-            <div class="accordion-item">
-              <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-3">
-                  How the deliveries work
-                </button>
-              </h2>
-
-              <div id="collapse-faq-3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion-faq">
-                <div class="accordion-body">
-               you can get a home delivery but this comes at a cost.
-               orders above 4000 are get a door delivery for Free
-               payment can be done on delivery or pay on order
-                </div>
-              </div>
-            </div>
-            <!-- .accordion-item -->
+{##}
+{#              <div class="accordion-item">#}
+{#                <h2 class="mb-0">#}
+{#                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-2">#}
+{#                payment methods#}
+{#              </button>#}
+{#            </h2>#}
+{#            <div id=" collapse-faq-2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion-faq">#}
+{#                    <div class="accordion-body">#}
+{#                     payment methods include payless, mpesa ,mastercard or cash#}
+{#                    </div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <!-- .accordion-item -->#}
+{##}
+{#            <div class="accordion-item">#}
+{#              <h2 class="mb-0">#}
+{#                <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-3">#}
+{#                  How the deliveries work#}
+{#                </button>#}
+{#              </h2>#}
+{##}
+{#              <div id="collapse-faq-3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion-faq">#}
+{#                <div class="accordion-body">#}
+{#               you can get a home delivery but this comes at a cost.#}
+{#               orders above 4000 are get a door delivery for Free#}
+{#               payment can be done on delivery or pay on order#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#            <!-- .accordion-item -->#}
 
           </div>
         </div>
@@ -749,21 +764,24 @@
 
     <!-- Team Section -->
     <section id="team" class="team section">
+       
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Team</h2>
         <p>Our Hardworking Team</p>
       </div><!-- End Section Title -->
+         {% for team in teams %}
 
       <div class="container">
+          
 
         <div class="row gy-4">
 
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member">
               <div class="member-img">
-                <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                <img src="{{ team.image.url }}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -772,65 +790,66 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>{{ team.full_name }}</h4>
+                <span>{{ team.position }}</span>
               </div>
             </div>
+              {% endfor %}
           </div><!-- End Team Member -->
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="{% static 'assets/img/team/team-4.jpg' %}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
+{#          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">#}
+{#            <div class="team-member">#}
+{#              <div class="member-img">#}
+{#                <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">#}
+{#                <div class="social">#}
+{#                  <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#                  <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                  <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                  <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="member-info">#}
+{#                <h4>Sarah Jhonson</h4>#}
+{#                <span>Product Manager</span>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">#}
+{#            <div class="team-member">#}
+{#              <div class="member-img">#}
+{#                <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">#}
+{#                <div class="social">#}
+{#                  <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#                  <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                  <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                  <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="member-info">#}
+{#                <h4>William Anderson</h4>#}
+{#                <span>CTO</span>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
+{##}
+{#          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">#}
+{#            <div class="team-member">#}
+{#              <div class="member-img">#}
+{#                <img src="{% static 'assets/img/team/team-4.jpg' %}" class="img-fluid" alt="">#}
+{#                <div class="social">#}
+{#                  <a href=""><i class="bi bi-twitter-x"></i></a>#}
+{#                  <a href=""><i class="bi bi-facebook"></i></a>#}
+{#                  <a href=""><i class="bi bi-instagram"></i></a>#}
+{#                  <a href=""><i class="bi bi-linkedin"></i></a>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="member-info">#}
+{#                <h4>Amanda Jepson</h4>#}
+{#                <span>Accountant</span>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div><!-- End Team Member -->#}
 
         </div>
 
@@ -846,30 +865,32 @@
         <h2>Recent Posts</h2>
         <p>Recent Blog Posts<br></p>
       </div><!-- End Section Title -->
+        
 
       <div class="container">
 
         <div class="row gy-4">
+            {% for blog in blogs %}
 
           <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <article>
 
               <div class="post-img">
-                <img src="{% static 'assets/img/blog/blog-1.jpg' %}" alt="" class="img-fluid">
+                <img src="{{ blog.image.url }}" alt="" class="img-fluid">
               </div>
 
-              <p class="post-category">Politics</p>
+              <p class="post-category">{{ blog.title }}</p>
 
               <h2 class="title">
-                <a href="blog-details.html">At Ibiza, we believe that the most worthy pleasures in life are earned over time. Every dish is crafted with care, turning moments of effort into lasting enjoyment.</a>
+                <a href="blog-details.html">{{ blog.content }}</a>
               </h2>
 
               <div class="d-flex align-items-center">
-                <img src="{% static 'assets/img/blog/blog-author.jpg' %}" alt="" class="img-fluid post-author-img flex-shrink-0">
+                <img src="{{ blog.profile_pic.url }}" alt="" class="img-fluid post-author-img flex-shrink-0">
                 <div class="post-meta">
-                  <p class="post-author">Maria Doe</p>
+                  <p class="post-author">{{ blog.full_name }}</p>
                   <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
+                    <time datetime="2022-01-01">{{ blog.date }}</time>
                   </p>
                 </div>
               </div>
@@ -877,59 +898,60 @@
             </article>
           </div><!-- End post list item -->
 
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <article>
-
-              <div class="post-img">
-                <img src="{% static 'assets/img/blog/blog-2.jpg' %}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Sports</p>
-
-              <h2 class="title">
-                <a href="blog-details.html"> While others may rush, we take our time to craft meals that bring comfort, not pain.</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{% static 'assets/img/blog/blog-author-2.jpg' %}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Allisa Mayer</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 5, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <article>
-
-              <div class="post-img">
-                <img src="{% static 'assets/img/blog/blog-3.jpg' %}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Entertainment</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Thank you for visiting our site and incase of any inconviniences you can give us feedback in our contacts below </a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{% static 'assets/img/blog/blog-author-3.jpg' %}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Mark Dower</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 22, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
-        </div><!-- End recent posts list -->
+{#          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">#}
+{#            <article>#}
+{##}
+{#              <div class="post-img">#}
+{#                <img src="{% static 'assets/img/blog/blog-2.jpg' %}" alt="" class="img-fluid">#}
+{#              </div>#}
+{##}
+{#              <p class="post-category">Sports</p>#}
+{##}
+{#              <h2 class="title">#}
+{#                <a href="blog-details.html"> While others may rush, we take our time to craft meals that bring comfort, not pain.</a>#}
+{#              </h2>#}
+{##}
+{#              <div class="d-flex align-items-center">#}
+{#                <img src="{% static 'assets/img/blog/blog-author-2.jpg' %}" alt="" class="img-fluid post-author-img flex-shrink-0">#}
+{#                <div class="post-meta">#}
+{#                  <p class="post-author">Allisa Mayer</p>#}
+{#                  <p class="post-date">#}
+{#                    <time datetime="2022-01-01">Jun 5, 2022</time>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </article>#}
+{#          </div><!-- End post list item -->#}
+{##}
+{#          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">#}
+{#            <article>#}
+{##}
+{#              <div class="post-img">#}
+{#                <img src="{% static 'assets/img/blog/blog-3.jpg' %}" alt="" class="img-fluid">#}
+{#              </div>#}
+{##}
+{#              <p class="post-category">Entertainment</p>#}
+{##}
+{#              <h2 class="title">#}
+{#                <a href="blog-details.html">Thank you for visiting our site and incase of any inconviniences you can give us feedback in our contacts below </a>#}
+{#              </h2>#}
+{##}
+{#              <div class="d-flex align-items-center">#}
+{#                <img src="{% static 'assets/img/blog/blog-author-3.jpg' %}" alt="" class="img-fluid post-author-img flex-shrink-0">#}
+{#                <div class="post-meta">#}
+{#                  <p class="post-author">Mark Dower</p>#}
+{#                  <p class="post-date">#}
+{#                    <time datetime="2022-01-01">Jun 22, 2022</time>#}
+{#                  </p>#}
+{#                </div>#}
+{#              </div>#}
+{##}
+{#            </article>#}
+{#          </div><!-- End post list item -->#}
+{##}
+{#        </div><!-- End recent posts list -->#}
+            {% endfor %}
 
       </div>
 
@@ -945,6 +967,7 @@
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade" data-aos-delay="100">
+          {% for contact in contacts %}
 
         <div class="row gy-4">
 
@@ -953,7 +976,7 @@
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>GTC mall 7th floor,Nairobi</p>
+                <p>{{ contact.address }}</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -961,7 +984,7 @@
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p>+254 734667982</p>
+                <p>{{ contact.contact }}</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -969,43 +992,12 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>ascentadam1@gmail.com</p>
+                <p>{{ contact.email }}</p>
               </div>
+                {% endfor %}
             </div><!-- End Info Item -->
 
-          </div>
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
 
         </div>
 

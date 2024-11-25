@@ -3,7 +3,7 @@ from django.db import models
 class Carousel(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=1000)
-    button =models.CharField(max_length=100)
+    # button =models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
@@ -77,7 +77,7 @@ class Pricing(models.Model):
     list_4 = models.TextField(max_length=1000)
     list_5 = models.TextField(max_length=1000)
     list_6 = models.TextField(max_length=1000)
-    button =models.CharField(max_length=100)
+    # button =models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
